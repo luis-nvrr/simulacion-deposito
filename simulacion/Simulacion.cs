@@ -76,7 +76,6 @@ namespace simulacion_mecanicos.simulacion
         {
             DataRow row = resultados.NewRow(); row[0] = linea.getId();
             double rndLlegadas = linea.getRNDLlegadaMecanico();
-            int ultimaFila = resultados.Rows.Count - 1;
 
             if (rndLlegadas != ultimoRNDLlegadas) { 
                 ultimoRNDLlegadas = rndLlegadas;
@@ -88,6 +87,7 @@ namespace simulacion_mecanicos.simulacion
 
             if (rndAtencion != ultimoRNDAtencion)
             {
+                ultimoRNDAtencion = rndAtencion;
                 row[6] = (linea.getRNDAtencion() != -1) ? linea.getRNDAtencion() : "";
                 row[7] = (linea.getTiempoAtencion() != -1) ? linea.getTiempoAtencion() : "";
             }
