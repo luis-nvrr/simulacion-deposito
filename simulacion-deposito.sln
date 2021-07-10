@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simulacion-deposito", "simulacion-deposito.csproj", "{8A77C4A1-91D0-4D8A-9480-79F0AAA593F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A77C4A1-91D0-4D8A-9480-79F0AAA593F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A77C4A1-91D0-4D8A-9480-79F0AAA593F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A77C4A1-91D0-4D8A-9480-79F0AAA593F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A77C4A1-91D0-4D8A-9480-79F0AAA593F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F353B6D-9071-45BB-8EF1-BF8F11A58F3B}
+	EndGlobalSection
+EndGlobal
