@@ -112,7 +112,8 @@ namespace simulacion_mecanicos.simulacion
 
             row[0] = truncador.truncar(costoSinAyudante);
             row[1] = truncador.truncar(costoConAyudante);
-            string conviene = costoSinAyudante > costoConAyudante ? SIN_AYUDANTE : CON_AYUDANTE;
+
+            string conviene = costoSinAyudante < costoConAyudante ? SIN_AYUDANTE : CON_AYUDANTE;
             row[2] = conviene;
 
             if(conviene == SIN_AYUDANTE) { contadorSinAyudante++; }
