@@ -262,7 +262,7 @@ namespace simulacion_mecanicos.simulacion
 
         public void calcularCostosAcumulados()
         {
-            this.costoAcumulado += costoEmpleado + costoAyudante + costoMecanicos;
+            this.costoAcumulado = costoEmpleado + costoAyudante + costoMecanicos;
         }
     }
 }

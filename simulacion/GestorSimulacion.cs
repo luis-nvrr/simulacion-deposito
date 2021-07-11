@@ -1,11 +1,7 @@
 ﻿using Numeros_aleatorios.Colas;
 using Numeros_aleatorios.LibreriaSimulacion;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace simulacion_mecanicos.simulacion
 {
@@ -24,16 +20,18 @@ namespace simulacion_mecanicos.simulacion
         private int hasta;
         private Simulacion simulacionSinAyudante;
         private Simulacion simulacionConAyudante;
-        private List<PantallaGrillas> grillas;
+        private List<List<DataTable>> grillas;
         private DataTable resultados;
         private Truncador truncador;
         private int contadorConAyudante;
         private int contadorSinAyudante;
+        private List<List<double>> costos;
 
         public GestorSimulacion(PantallaPrincipal pantalla)
         {
             this.pantalla = pantalla;
-            this.grillas = new List<PantallaGrillas>();
+            this.grillas = new List<List<DataTable>>();
+            this.costos = new List<List<double>>();
             this.truncador = new Truncador(4);
             construirTabla();
         }
@@ -72,7 +70,7 @@ namespace simulacion_mecanicos.simulacion
             {
                 simularSinAyudante();
                 simularConAyudante();
-                crearPantallaGrillas();
+                guardarGrillas();
                 agregarResultados();
             }
             this.pantalla.mostrarResultados(resultados);
@@ -94,14 +92,17 @@ namespace simulacion_mecanicos.simulacion
             this.simulacionConAyudante.simular();
         }
 
-        private void crearPantallaGrillas()
+        private void guardarGrillas()
         {
-            PantallaGrillas pantallaGrillas = new PantallaGrillas();
-            pantallaGrillas.mostrarGrillaSinAyudante(simulacionSinAyudante.getResultados());
-            pantallaGrillas.mostrarGrillaConAyudante(simulacionConAyudante.getResultados());
-            pantallaGrillas.agregarCostoSinAyudante(simulacionSinAyudante.getCostoAcumulado());
-            pantallaGrillas.agregarCostoConAyudante(simulacionConAyudante.getCostoAcumulado());
-            this.grillas.Add(pantallaGrillas);
+            List<DataTable> temp = new List<DataTable>();
+            temp.Add(simulacionSinAyudante.getResultados());
+            temp.Add(simulacionConAyudante.getResultados());
+            this.grillas.Add(temp);
+
+            List<double> tempCostos = new List<double>();
+            tempCostos.Add(simulacionSinAyudante.getCostoAcumulado());
+            tempCostos.Add(simulacionConAyudante.getCostoAcumulado());
+            this.costos.Add(tempCostos);
         }
 
         private void agregarResultados()
@@ -130,7 +131,12 @@ namespace simulacion_mecanicos.simulacion
 
         public void mostrarPantalla(int fila)
         {
-            this.grillas[fila].Show();
+            PantallaGrillas pantallaGrillas = new PantallaGrillas();
+            pantallaGrillas.mostrarGrillaSinAyudante(this.grillas[fila][0]);
+            pantallaGrillas.mostrarGrillaConAyudante(this.grillas[fila][1]);
+            pantallaGrillas.agregarCostoSinAyudante(this.costos[fila][0]);
+            pantallaGrillas.agregarCostoConAyudante(this.costos[fila][1]);
+            pantallaGrillas.Show();
         }
 
     }

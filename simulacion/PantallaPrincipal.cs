@@ -93,6 +93,8 @@ namespace Numeros_aleatorios.Colas
         {
             grdResultados.DataSource = null;
             grdResultados.Columns.Clear();
+            grdResultados.CellClick -= grdResultados_CellClick;
+            grdResultados.Refresh(); 
 
             mediaLlegadasSinAyudante = double.Parse(txtMediaLlegadas1.Text);
             mediaFinAtencionSinAyudante = double.Parse(txtMediaAtencion1.Text);
