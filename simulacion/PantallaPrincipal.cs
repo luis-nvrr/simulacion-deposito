@@ -33,7 +33,7 @@ namespace Numeros_aleatorios.Colas
             txtMediaAtencion1.Text = "5.0";
             txtMediaLlegadas2.Text = "6.0";
             txtMediaAtencion2.Text = "4.0";
-            txtCantidadSimulaciones.Text = "1";
+            txtCantidadSimulaciones.Text = "10";
             txtCantidadLineas.Text = "1000";
             txtDesde.Text = "0";
             txtHasta.Text = "500";

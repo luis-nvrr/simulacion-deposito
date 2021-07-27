@@ -59,7 +59,7 @@ namespace simulacion_mecanicos.simulacion
 
         public void setReloj(double reloj)
         {
-            this.reloj = reloj;
+            this.reloj = truncador.truncar(reloj);
         }
 
         public void recibirMecanico()
@@ -84,7 +84,7 @@ namespace simulacion_mecanicos.simulacion
 
         public double getReloj()
         {
-            return truncador.truncar(this.reloj);
+            return this.reloj;
         }
 
         public double getRNDLlegadaMecanico()
@@ -240,13 +240,13 @@ namespace simulacion_mecanicos.simulacion
 
         public void agregarCostoEmpleado(double siguienteEvento)
         {
-            this.costoEmpleado += (12.0/60.0) * (siguienteEvento - reloj);
+            this.costoEmpleado = truncador.truncar(this.costoEmpleado + (12.0/60.0) * (siguienteEvento - reloj));
         }
         public void agregarCostoAyudante(double siguienteEvento)
         {
             if (atencion.tieneAyudante())
             {
-                this.costoAyudante += (8.0 / 60.0) * (siguienteEvento - reloj);
+                this.costoAyudante = truncador.truncar(this.costoAyudante + (8.0 / 60.0) * (siguienteEvento - reloj));
             }
         }
 
@@ -255,14 +255,14 @@ namespace simulacion_mecanicos.simulacion
             foreach(Mecanico mecanico in mecanicosEnSistema){
                 if (mecanico.estaEsperando())
                 {
-                    this.costoMecanicos += (20.0 / 60.0) * (siguienteEvento - reloj);
+                    this.costoMecanicos = truncador.truncar(this.costoMecanicos + (20.0 / 60.0) * (siguienteEvento - reloj));
                 }
             }
         }
 
         public void calcularCostosAcumulados()
         {
-            this.costoAcumulado = costoEmpleado + costoAyudante + costoMecanicos;
+            this.costoAcumulado = truncador.truncar(costoEmpleado + costoAyudante + costoMecanicos);
         }
     }
 }

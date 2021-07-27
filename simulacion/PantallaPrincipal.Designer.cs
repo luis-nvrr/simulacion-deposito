@@ -312,7 +312,7 @@ namespace Numeros_aleatorios.Colas
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.panel1);
             this.Name = "PantallaPrincipal";
-            this.Text = "PantallaResultados";
+            this.Text = "Pantalla Principal - Simulacion";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PantallaResultados_Load);
             this.panel1.ResumeLayout(false);

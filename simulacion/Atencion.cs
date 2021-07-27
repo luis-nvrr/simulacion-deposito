@@ -85,7 +85,7 @@ namespace simulacion_mecanicos.simulacion
         private void generarFinAtencion(double reloj)
         {
             this.tiempoAtencion = generadorExponencial.siguienteAleatorio();
-            this.finAtencion = reloj + tiempoAtencion;
+            this.finAtencion = truncador.truncar(reloj + tiempoAtencion);
             this.random = ((GeneradorExponencialNegativa)generadorExponencial).getAleatorioUniforme();
         }
 

@@ -28,7 +28,7 @@ namespace simulacion_mecanicos.simulacion
 
         public void generarSiguienteLlegada(double reloj)
         {
-            this.siguienteLlegada = reloj + generadorExponencial.siguienteAleatorio();
+            this.siguienteLlegada = truncador.truncar(reloj + generadorExponencial.siguienteAleatorio());
             this.tiempoParaLlegada = ((GeneradorExponencialNegativa)generadorExponencial).getAleatorio();
             this.random = ((GeneradorExponencialNegativa)generadorExponencial).getAleatorioUniforme();
         }
